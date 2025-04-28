@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="500px" height="300px" viewBox="0 0 500 300" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>人工神经元</title>
+    <defs>
+        <linearGradient x1="0%" y1="0%" x2="100%" y2="100%" id="gradientNeuron">
+            <stop stop-color="#8B5CF6" offset="0%"></stop>
+            <stop stop-color="#6366F1" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="0%" y1="0%" x2="100%" y2="100%" id="gradientInput">
+            <stop stop-color="#38BDF8" offset="0%"></stop>
+            <stop stop-color="#0EA5E9" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="0%" y1="0%" x2="100%" y2="100%" id="gradientOutput">
+            <stop stop-color="#F472B6" offset="0%"></stop>
+            <stop stop-color="#EC4899" offset="100%"></stop>
+        </linearGradient>
+        <filter id="neuronShadow" x="-20%" y="-20%" width="140%" height="140%">
+            <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.15"/>
+        </filter>
+    </defs>
+    <g id="ArtificialNeuron" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <!-- 神经元主体 -->
+        <circle id="Neuron" cx="250" cy="150" r="50" fill="url(#gradientNeuron)" filter="url(#neuronShadow)"></circle>
+        <text x="250" y="155" font-family="Arial" font-size="16" font-weight="bold" fill="white" text-anchor="middle">Σ + f(x)</text>
+        
+        <!-- 输入节点 -->
+        <g id="InputNodes">
+            <circle cx="70" cy="80" r="20" fill="url(#gradientInput)" filter="url(#neuronShadow)"></circle>
+            <text x="70" y="85" font-family="Arial" font-size="14" fill="white" text-anchor="middle">x₁</text>
+            
+            <circle cx="70" cy="150" r="20" fill="url(#gradientInput)" filter="url(#neuronShadow)"></circle>
+            <text x="70" y="155" font-family="Arial" font-size="14" fill="white" text-anchor="middle">x₂</text>
+            
+            <circle cx="70" cy="220" r="20" fill="url(#gradientInput)" filter="url(#neuronShadow)"></circle>
+            <text x="70" y="225" font-family="Arial" font-size="14" fill="white" text-anchor="middle">x₃</text>
+        </g>
+        
+        <!-- 输出节点 -->
+        <circle id="OutputNode" cx="430" cy="150" r="20" fill="url(#gradientOutput)" filter="url(#neuronShadow)"></circle>
+        <text x="430" y="155" font-family="Arial" font-size="14" fill="white" text-anchor="middle">y</text>
+        
+        <!-- 输入连接线 -->
+        <g id="InputConnections" stroke-width="3" stroke-linecap="round">
+            <line x1="90" y1="80" x2="200" y2="150" stroke="#38BDF8"></line>
+            <line x1="90" y1="150" x2="200" y2="150" stroke="#38BDF8"></line>
+            <line x1="90" y1="220" x2="200" y2="150" stroke="#38BDF8"></line>
+            
+            <!-- 权重标签 -->
+            <text x="130" y="95" font-family="Arial" font-size="14" font-weight="bold" fill="#0EA5E9" transform="rotate(-20, 130, 95)">w₁</text>
+            <text x="130" y="140" font-family="Arial" font-size="14" font-weight="bold" fill="#0EA5E9">w₂</text>
+            <text x="130" y="200" font-family="Arial" font-size="14" font-weight="bold" fill="#0EA5E9" transform="rotate(20, 130, 200)">w₃</text>
+        </g>
+        
+        <!-- 输出连接线 -->
+        <line id="OutputConnection" x1="300" y1="150" x2="410" y2="150" stroke="#EC4899" stroke-width="3" stroke-linecap="round"></line>
+        
+        <!-- 偏置 -->
+        <g id="Bias">
+            <circle cx="180" cy="80" r="20" fill="#F59E0B" filter="url(#neuronShadow)"></circle>
+            <text x="180" y="85" font-family="Arial" font-size="14" fill="white" text-anchor="middle">b</text>
+            <line x1="180" y1="100" x2="210" y2="130" stroke="#F59E0B" stroke-width="3" stroke-linecap="round"></line>
+        </g>
+        
+        <!-- 公式 -->
+        <g id="Formula" font-family="Arial" font-size="14" fill="#1E293B">
+            <text x="250" y="240" text-anchor="middle">y = f(Σ w_i * x_i + b)</text>
+            <text x="250" y="260" text-anchor="middle">其中 f 是激活函数</text>
+        </g>
+        
+        <!-- 标签 -->
+        <g id="Labels" font-family="Arial" font-size="14" fill="#1E293B">
+            <text x="70" y="40" text-anchor="middle">输入</text>
+            <text x="250" y="40" text-anchor="middle">神经元</text>
+            <text x="430" y="40" text-anchor="middle">输出</text>
+            <text x="180" y="40" text-anchor="middle">偏置</text>
+        </g>
+    </g>
+</svg> 

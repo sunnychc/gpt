@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="700px" height="500px" viewBox="0 0 700 500" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Transformer架构</title>
+    <defs>
+        <linearGradient x1="0%" y1="0%" x2="100%" y2="100%" id="gradientEncoder">
+            <stop stop-color="#38BDF8" offset="0%"></stop>
+            <stop stop-color="#0EA5E9" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="0%" y1="0%" x2="100%" y2="100%" id="gradientDecoder">
+            <stop stop-color="#8B5CF6" offset="0%"></stop>
+            <stop stop-color="#6366F1" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="0%" y1="0%" x2="100%" y2="100%" id="gradientAttention">
+            <stop stop-color="#F472B6" offset="0%"></stop>
+            <stop stop-color="#EC4899" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="0%" y1="0%" x2="100%" y2="100%" id="gradientFFN">
+            <stop stop-color="#34D399" offset="0%"></stop>
+            <stop stop-color="#10B981" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="0%" y1="0%" x2="100%" y2="100%" id="gradientEmbed">
+            <stop stop-color="#FBBF24" offset="0%"></stop>
+            <stop stop-color="#F59E0B" offset="100%"></stop>
+        </linearGradient>
+        <filter id="transformerShadow" x="-20%" y="-20%" width="140%" height="140%">
+            <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.15"/>
+        </filter>
+    </defs>
+    <g id="TransformerArchitecture" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <!-- 标题 -->
+        <text x="350" y="40" font-family="Arial" font-size="24" font-weight="bold" fill="#1E293B" text-anchor="middle">Transformer架构</text>
+
+        <!-- 主体框架 -->
+        <g id="MainStructure" transform="translate(50, 80)">
+            <rect width="600" height="350" rx="8" fill="#F8FAFC" filter="url(#transformerShadow)"></rect>
+
+            <!-- 分隔线 -->
+            <line x1="300" y1="0" x2="300" y2="350" stroke="#E2E8F0" stroke-width="2" stroke-dasharray="5,5"></line>
+
+            <!-- 标题 -->
+            <text x="150" y="30" font-family="Arial" font-size="18" font-weight="bold" fill="#1E293B" text-anchor="middle">编码器 (Encoder)</text>
+            <text x="450" y="30" font-family="Arial" font-size="18" font-weight="bold" fill="#1E293B" text-anchor="middle">解码器 (Decoder)</text>
+
+            <!-- 编码器层 -->
+            <g id="EncoderStack" transform="translate(75, 60)">
+                <!-- 编码器层1 -->
+                <rect width="150" height="80" rx="8" fill="url(#gradientEncoder)" filter="url(#transformerShadow)"></rect>
+                <text x="75" y="30" font-family="Arial" font-size="14" font-weight="bold" fill="white" text-anchor="middle">多头自注意力</text>
+                <text x="75" y="60" font-family="Arial" font-size="14" font-weight="bold" fill="white" text-anchor="middle">前馈神经网络</text>
+
+                <!-- 编码器层2 -->
+                <rect y="90" width="150" height="80" rx="8" fill="url(#gradientEncoder)" filter="url(#transformerShadow)" opacity="0.8"></rect>
+                <text x="75" y="120" font-family="Arial" font-size="14" font-weight="bold" fill="white" text-anchor="middle">多头自注意力</text>
+                <text x="75" y="150" font-family="Arial" font-size="14" font-weight="bold" fill="white" text-anchor="middle">前馈神经网络</text>
+
+                <!-- N层编码器 -->
+                <rect y="180" width="150" height="40" rx="8" fill="url(#gradientEncoder)" filter="url(#transformerShadow)" opacity="0.6"></rect>
+                <text x="75" y="205" font-family="Arial" font-size="14" font-weight="bold" fill="white" text-anchor="middle">× N</text>
+            </g>
+
+            <!-- 解码器层 -->
+            <g id="DecoderStack" transform="translate(375, 60)">
+                <!-- 解码器层1 -->
+                <rect width="150" height="100" rx="8" fill="url(#gradientDecoder)" filter="url(#transformerShadow)"></rect>
+                <text x="75" y="30" font-family="Arial" font-size="14" font-weight="bold" fill="white" text-anchor="middle">多头自注意力</text>
+                <text x="75" y="60" font-family="Arial" font-size="14" font-weight="bold" fill="white" text-anchor="middle">多头交叉注意力</text>
+                <text x="75" y="90" font-family="Arial" font-size="14" font-weight="bold" fill="white" text-anchor="middle">前馈神经网络</text>
+
+                <!-- 解码器层2 -->
+                <rect y="110" width="150" height="40" rx="8" fill="url(#gradientDecoder)" filter="url(#transformerShadow)" opacity="0.8"></rect>
+                <text x="75" y="135" font-family="Arial" font-size="14" font-weight="bold" fill="white" text-anchor="middle">× N</text>
+            </g>
+
+            <!-- 输入嵌入层 -->
+            <g id="InputEmbedding" transform="translate(75, 280)">
+                <rect width="150" height="40" rx="8" fill="url(#gradientEmbed)" filter="url(#transformerShadow)"></rect>
+                <text x="75" y="25" font-family="Arial" font-size="14" font-weight="bold" fill="white" text-anchor="middle">输入嵌入 + 位置编码</text>
+            </g>
+
+            <!-- 输出嵌入层 -->
+            <g id="OutputEmbedding" transform="translate(375, 170)">
+                <rect width="150" height="40" rx="8" fill="url(#gradientEmbed)" filter="url(#transformerShadow)"></rect>
+                <text x="75" y="25" font-family="Arial" font-size="14" font-weight="bold" fill="white" text-anchor="middle">输出嵌入 + 位置编码</text>
+            </g>
+
+            <!-- 线性层和Softmax -->
+            <g id="LinearAndSoftmax" transform="translate(375, 230)">
+                <rect width="150" height="40" rx="8" fill="#94A3B8" filter="url(#transformerShadow)"></rect>
+                <text x="75" y="25" font-family="Arial" font-size="14" font-weight="bold" fill="white" text-anchor="middle">线性层 + Softmax</text>
+            </g>
+
+            <!-- 输入/输出标签 -->
+            <g id="IOLabels" font-family="Arial" font-size="14" fill="#475569">
+                <text x="150" y="345" text-anchor="middle">输入序列</text>
+                <text x="450" y="345" text-anchor="middle">输出序列（偏移一位）</text>
+                <text x="450" y="295" text-anchor="middle">输出概率</text>
+            </g>
+
+            <!-- 连接线 -->
+            <g id="Connections" stroke="#94A3B8" stroke-width="1.5" stroke-linecap="round">
+                <!-- 编码器内部连接 -->
+                <line x1="150" y1="100" x2="150" y2="150"></line>
+                <line x1="150" y1="190" x2="150" y2="220"></line>
+                <line x1="150" y1="280" x2="150" y2="320"></line>
+
+                <!-- 解码器内部连接 -->
+                <line x1="450" y1="160" x2="450" y2="170"></line>
+                <line x1="450" y1="210" x2="450" y2="230"></line>
+                <line x1="450" y1="270" x2="450" y2="320"></line>
+
+                <!-- 编码器到解码器的连接 -->
+                <line x1="225" y1="150" x2="375" y2="150" stroke-dasharray="5,3"></line>
+                <polygon points="373,150 365,146 365,154" fill="#94A3B8"></polygon>
+            </g>
+        </g>
+
+        <!-- 多头注意力机制 -->
+        <g id="MultiHeadAttention" transform="translate(70, 450)">
+            <text x="0" y="0" font-family="Arial" font-size="16" font-weight="bold" fill="#1E293B">多头注意力机制:</text>
+            <text x="150" y="0" font-family="Arial" font-size="14" fill="#475569">将查询(Q)、键(K)、值(V)投影到多个子空间，并行计算注意力，然后合并</text>
+        </g>
+
+        <!-- 注意力公式 -->
+        <g id="AttentionFormula" transform="translate(70, 475)">
+            <text x="0" y="0" font-family="Arial" font-size="14" fill="#1E293B">注意力计算公式:</text>
+            <text x="130" y="0" font-family="Arial" font-size="14" fill="#475569">Attention(Q, K, V) = softmax(QK^T/√d_k)V</text>
+        </g>
+    </g>
+</svg>

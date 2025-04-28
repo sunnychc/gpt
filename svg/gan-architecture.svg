@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="650px" height="400px" viewBox="0 0 650 400" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>生成对抗网络架构</title>
+    <defs>
+        <linearGradient x1="0%" y1="0%" x2="100%" y2="100%" id="gradientGenerator">
+            <stop stop-color="#38BDF8" offset="0%"></stop>
+            <stop stop-color="#0EA5E9" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="0%" y1="0%" x2="100%" y2="100%" id="gradientDiscriminator">
+            <stop stop-color="#F472B6" offset="0%"></stop>
+            <stop stop-color="#EC4899" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="0%" y1="0%" x2="100%" y2="100%" id="gradientNoise">
+            <stop stop-color="#A3A3A3" offset="0%"></stop>
+            <stop stop-color="#737373" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="0%" y1="0%" x2="100%" y2="100%" id="gradientReal">
+            <stop stop-color="#34D399" offset="0%"></stop>
+            <stop stop-color="#10B981" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="0%" y1="0%" x2="100%" y2="100%" id="gradientFake">
+            <stop stop-color="#FBBF24" offset="0%"></stop>
+            <stop stop-color="#F59E0B" offset="100%"></stop>
+        </linearGradient>
+        <filter id="ganShadow" x="-20%" y="-20%" width="140%" height="140%">
+            <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.15"/>
+        </filter>
+    </defs>
+    <g id="GANArchitecture" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <!-- 标题 -->
+        <text x="325" y="40" font-family="Arial" font-size="24" font-weight="bold" fill="#1E293B" text-anchor="middle">生成对抗网络 (GAN)</text>
+
+        <!-- 整体架构图 -->
+        <g id="MainStructure">
+            <!-- 随机噪声 -->
+            <g id="NoiseInput" transform="translate(50, 110)">
+                <rect width="80" height="60" rx="8" fill="url(#gradientNoise)" filter="url(#ganShadow)"></rect>
+                <text x="40" y="35" font-family="Arial" font-size="14" font-weight="bold" fill="white" text-anchor="middle">随机噪声</text>
+                <text x="40" y="-15" font-family="Arial" font-size="16" font-weight="bold" fill="#1E293B" text-anchor="middle">潜在空间</text>
+            </g>
+
+            <!-- 生成器 -->
+            <g id="Generator" transform="translate(180, 80)">
+                <rect width="120" height="120" rx="8" fill="url(#gradientGenerator)" filter="url(#ganShadow)"></rect>
+                <text x="60" y="70" font-family="Arial" font-size="18" font-weight="bold" fill="white" text-anchor="middle">生成器</text>
+                <text x="60" y="-15" font-family="Arial" font-size="16" font-weight="bold" fill="#1E293B" text-anchor="middle">生成网络</text>
+            </g>
+
+            <!-- 生成数据 -->
+            <g id="FakeData" transform="translate(350, 110)">
+                <rect width="80" height="60" rx="8" fill="url(#gradientFake)" filter="url(#ganShadow)"></rect>
+                <text x="40" y="35" font-family="Arial" font-size="14" font-weight="bold" fill="white" text-anchor="middle">生成样本</text>
+            </g>
+
+            <!-- 真实数据 -->
+            <g id="RealData" transform="translate(350, 200)">
+                <rect width="80" height="60" rx="8" fill="url(#gradientReal)" filter="url(#ganShadow)"></rect>
+                <text x="40" y="35" font-family="Arial" font-size="14" font-weight="bold" fill="white" text-anchor="middle">真实样本</text>
+                <text x="40" y="-15" font-family="Arial" font-size="16" font-weight="bold" fill="#1E293B" text-anchor="middle">训练数据</text>
+            </g>
+
+            <!-- 判别器 -->
+            <g id="Discriminator" transform="translate(480, 140)">
+                <rect width="120" height="120" rx="8" fill="url(#gradientDiscriminator)" filter="url(#ganShadow)"></rect>
+                <text x="60" y="70" font-family="Arial" font-size="18" font-weight="bold" fill="white" text-anchor="middle">判别器</text>
+                <text x="60" y="-15" font-family="Arial" font-size="16" font-weight="bold" fill="#1E293B" text-anchor="middle">判别网络</text>
+            </g>
+
+            <!-- 结果框 -->
+            <g id="Result" transform="translate(480, 80)">
+                <rect width="120" height="30" rx="4" fill="#FFFFFF" stroke="#94A3B8" stroke-width="1"></rect>
+                <text x="60" y="20" font-family="Arial" font-size="14" fill="#475569" text-anchor="middle">真实 vs 生成</text>
+            </g>
+
+            <!-- 连接线 -->
+            <g id="Connections" stroke="#94A3B8" stroke-width="2" stroke-linecap="round">
+                <!-- 噪声到生成器 -->
+                <line x1="130" y1="140" x2="180" y2="140"></line>
+                <polygon points="178,140 170,136 170,144" fill="#94A3B8"></polygon>
+
+                <!-- 生成器到生成数据 -->
+                <line x1="300" y1="140" x2="350" y2="140"></line>
+                <polygon points="348,140 340,136 340,144" fill="#94A3B8"></polygon>
+
+                <!-- 生成数据到判别器 -->
+                <line x1="430" y1="140" x2="480" y2="180"></line>
+                <polygon points="478,178 470,172 474,182" fill="#94A3B8"></polygon>
+
+                <!-- 真实数据到判别器 -->
+                <line x1="430" y1="230" x2="480" y2="210"></line>
+                <polygon points="478,210 470,214 474,204" fill="#94A3B8"></polygon>
+
+                <!-- 判别器到结果 -->
+                <line x1="540" y1="140" x2="540" y2="110"></line>
+                <polygon points="540,112 536,120 544,120" fill="#94A3B8"></polygon>
+
+                <!-- 对抗反馈 -->
+                <path d="M 540,80 C 540,50 350,50 240,80" stroke="#94A3B8" stroke-width="2" stroke-dasharray="5,3"></path>
+                <polygon points="242,79 234,83 238,73" fill="#94A3B8"></polygon>
+            </g>
+        </g>
+
+        <!-- GAN特性 -->
+        <g id="GANFeatures" transform="translate(325, 300)" font-family="Arial" fill="#475569" text-anchor="middle">
+            <text x="0" y="0" font-size="16" font-weight="bold" fill="#1E293B">GAN特点</text>
+            <text x="-200" y="30" font-size="14" text-anchor="start">• 无需标签的生成学习</text>
+            <text x="-200" y="55" font-size="14" text-anchor="start">• 生成器与判别器对抗</text>
+            <text x="100" y="30" font-size="14" text-anchor="start">• 可生成高质量样本</text>
+            <text x="100" y="55" font-size="14" text-anchor="start">• 广泛应用于图像生成</text>
+        </g>
+    </g>
+</svg>

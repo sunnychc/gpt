@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800px" height="500px" viewBox="0 0 800 500" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>神经网络结构</title>
+    <defs>
+        <linearGradient x1="0%" y1="0%" x2="100%" y2="100%" id="gradientInput">
+            <stop stop-color="#38BDF8" offset="0%"></stop>
+            <stop stop-color="#0EA5E9" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="0%" y1="0%" x2="100%" y2="100%" id="gradientHidden">
+            <stop stop-color="#8B5CF6" offset="0%"></stop>
+            <stop stop-color="#6366F1" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="0%" y1="0%" x2="100%" y2="100%" id="gradientOutput">
+            <stop stop-color="#EC4899" offset="0%"></stop>
+            <stop stop-color="#D946EF" offset="100%"></stop>
+        </linearGradient>
+        <filter id="neuralShadow" x="-20%" y="-20%" width="140%" height="140%">
+            <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.15"/>
+        </filter>
+    </defs>
+    <g id="NeuralNetwork" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <!-- 标题 -->
+        <text x="400" y="40" font-family="Arial" font-size="24" font-weight="bold" fill="#1E293B" text-anchor="middle">神经网络结构</text>
+        
+        <!-- 输入层 -->
+        <g id="InputLayer" transform="translate(120, 100)">
+            <text x="0" y="-30" font-family="Arial" font-size="18" font-weight="bold" fill="#1E293B">输入层</text>
+            <circle cx="0" cy="50" r="30" fill="url(#gradientInput)" filter="url(#neuralShadow)"></circle>
+            <circle cx="0" cy="150" r="30" fill="url(#gradientInput)" filter="url(#neuralShadow)"></circle>
+            <circle cx="0" cy="250" r="30" fill="url(#gradientInput)" filter="url(#neuralShadow)"></circle>
+            <circle cx="0" cy="350" r="30" fill="url(#gradientInput)" filter="url(#neuralShadow)"></circle>
+            <text x="0" y="55" font-family="Arial" font-size="16" fill="white" text-anchor="middle">x₁</text>
+            <text x="0" y="155" font-family="Arial" font-size="16" fill="white" text-anchor="middle">x₂</text>
+            <text x="0" y="255" font-family="Arial" font-size="16" fill="white" text-anchor="middle">x₃</text>
+            <text x="0" y="355" font-family="Arial" font-size="16" fill="white" text-anchor="middle">x₄</text>
+        </g>
+        
+        <!-- 隐藏层1 -->
+        <g id="HiddenLayer1" transform="translate(320, 100)">
+            <text x="0" y="-30" font-family="Arial" font-size="18" font-weight="bold" fill="#1E293B">隐藏层1</text>
+            <circle cx="0" cy="100" r="30" fill="url(#gradientHidden)" filter="url(#neuralShadow)"></circle>
+            <circle cx="0" cy="200" r="30" fill="url(#gradientHidden)" filter="url(#neuralShadow)"></circle>
+            <circle cx="0" cy="300" r="30" fill="url(#gradientHidden)" filter="url(#neuralShadow)"></circle>
+            <text x="0" y="105" font-family="Arial" font-size="16" fill="white" text-anchor="middle">h₁₁</text>
+            <text x="0" y="205" font-family="Arial" font-size="16" fill="white" text-anchor="middle">h₁₂</text>
+            <text x="0" y="305" font-family="Arial" font-size="16" fill="white" text-anchor="middle">h₁₃</text>
+        </g>
+        
+        <!-- 隐藏层2 -->
+        <g id="HiddenLayer2" transform="translate(520, 100)">
+            <text x="0" y="-30" font-family="Arial" font-size="18" font-weight="bold" fill="#1E293B">隐藏层2</text>
+            <circle cx="0" cy="150" r="30" fill="url(#gradientHidden)" filter="url(#neuralShadow)"></circle>
+            <circle cx="0" cy="250" r="30" fill="url(#gradientHidden)" filter="url(#neuralShadow)"></circle>
+            <text x="0" y="155" font-family="Arial" font-size="16" fill="white" text-anchor="middle">h₂₁</text>
+            <text x="0" y="255" font-family="Arial" font-size="16" fill="white" text-anchor="middle">h₂₂</text>
+        </g>
+        
+        <!-- 输出层 -->
+        <g id="OutputLayer" transform="translate(720, 100)">
+            <text x="0" y="-30" font-family="Arial" font-size="18" font-weight="bold" fill="#1E293B">输出层</text>
+            <circle cx="0" cy="200" r="30" fill="url(#gradientOutput)" filter="url(#neuralShadow)"></circle>
+            <text x="0" y="205" font-family="Arial" font-size="16" fill="white" text-anchor="middle">y</text>
+        </g>
+        
+        <!-- 连接线 - 输入层到隐藏层1 -->
+        <g id="Connections-Input-Hidden1" stroke="#94A3B8" stroke-width="1.5" stroke-opacity="0.5">
+            <!-- 从x₁到隐藏层1的所有节点 -->
+            <line x1="120" y1="150" x2="320" y2="200" stroke-linecap="round"></line>
+            <line x1="120" y1="150" x2="320" y2="300" stroke-linecap="round"></line>
+            <line x1="120" y1="150" x2="320" y2="400" stroke-linecap="round"></line>
+            
+            <!-- 从x₂到隐藏层1的所有节点 -->
+            <line x1="120" y1="250" x2="320" y2="200" stroke-linecap="round"></line>
+            <line x1="120" y1="250" x2="320" y2="300" stroke-linecap="round"></line>
+            <line x1="120" y1="250" x2="320" y2="400" stroke-linecap="round"></line>
+            
+            <!-- 从x₃到隐藏层1的所有节点 -->
+            <line x1="120" y1="350" x2="320" y2="200" stroke-linecap="round"></line>
+            <line x1="120" y1="350" x2="320" y2="300" stroke-linecap="round"></line>
+            <line x1="120" y1="350" x2="320" y2="400" stroke-linecap="round"></line>
+            
+            <!-- 从x₄到隐藏层1的所有节点 -->
+            <line x1="120" y1="450" x2="320" y2="200" stroke-linecap="round"></line>
+            <line x1="120" y1="450" x2="320" y2="300" stroke-linecap="round"></line>
+            <line x1="120" y1="450" x2="320" y2="400" stroke-linecap="round"></line>
+        </g>
+        
+        <!-- 连接线 - 隐藏层1到隐藏层2 -->
+        <g id="Connections-Hidden1-Hidden2" stroke="#94A3B8" stroke-width="1.5" stroke-opacity="0.5">
+            <!-- 从隐藏层1的所有节点到隐藏层2的所有节点 -->
+            <line x1="320" y1="200" x2="520" y2="250" stroke-linecap="round"></line>
+            <line x1="320" y1="200" x2="520" y2="350" stroke-linecap="round"></line>
+            <line x1="320" y1="300" x2="520" y2="250" stroke-linecap="round"></line>
+            <line x1="320" y1="300" x2="520" y2="350" stroke-linecap="round"></line>
+            <line x1="320" y1="400" x2="520" y2="250" stroke-linecap="round"></line>
+            <line x1="320" y1="400" x2="520" y2="350" stroke-linecap="round"></line>
+        </g>
+        
+        <!-- 连接线 - 隐藏层2到输出层 -->
+        <g id="Connections-Hidden2-Output" stroke="#94A3B8" stroke-width="1.5" stroke-opacity="0.5">
+            <!-- 从隐藏层2的所有节点到输出层 -->
+            <line x1="520" y1="250" x2="720" y2="300" stroke-linecap="round"></line>
+            <line x1="520" y1="350" x2="720" y2="300" stroke-linecap="round"></line>
+        </g>
+        
+        <!-- 说明文字 -->
+        <g id="Descriptions" font-family="Arial" font-size="14" fill="#475569">
+            <text x="400" y="470" text-anchor="middle">全连接神经网络（4-3-2-1结构）</text>
+        </g>
+    </g>
+</svg> 
